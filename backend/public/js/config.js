@@ -1,6 +1,6 @@
 // ---- Backend connection settings ----
 // Change this if your backend runs somewhere other than localhost:3000
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "";
 
 // Small fetch wrapper: always sends cookies (the backend uses an httpOnly
 // "token" cookie for auth), always sends/expects JSON.

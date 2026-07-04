@@ -3,12 +3,15 @@ const app = require("./src/app");
 const connectDB = require("./src/db/db");
 const initSocketServer = require("./src/sockets/socket.server");
 
+
 const httpServer = require("http").createServer(app);
 
 initSocketServer(httpServer);
 
 connectDB();
 
-httpServer.listen(3000,()=>{
-    console.log("Server is running on port 3000");
-})
+const PORT = process.env.PORT || 3000;
+
+httpServer.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+});
