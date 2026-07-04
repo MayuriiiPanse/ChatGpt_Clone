@@ -7,6 +7,7 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 app.use(cookieparser());
+app.use(express.static(path.join(__dirname, "../public")));
 
 const cors = require("cors");
    app.use(cors({
@@ -16,9 +17,9 @@ const cors = require("cors");
 
 app.use('/api/auth', authRoutes);
 app.use('/api/chat',chatRoutes);
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
-});
 
+app.get("*name",(req, res)=>{
+   app.use(express.static(path.join(__dirname, "../public")));
+})
 
 module.exports = app;
